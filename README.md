@@ -8,10 +8,10 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 
 hyperparameters <- c(LDAmethod = "Gibbs", Topics = 50, alpha = 0.2, seed = 123, JSDmax = 0.08)
 
-textRec(users = users_df, # df of users
-        documents = text_df,  # df of documents
+textRec(users = users_df,       # df of users
+        documents = text_df,    # df of documents
         user_ID = users_df$ID,  # ID of users
-        text_ID = text_df$ID,  # ID of documents
+        text_ID = text_df$ID,   # ID of documents
         interactions = interactions_df, # df containing user/doc interactions
         hyperparameters = c( # list of hyperparameters
                 LDAmethod = "Gibbs", # choose which method the LDA model should use
