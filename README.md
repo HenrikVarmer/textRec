@@ -13,6 +13,6 @@ textRec(users_df, # df of users
         user_ID,  # ID of users
         text_ID,  # ID of documents
         interactions_df, # df containing user/doc interactions
-        hyperparameters = parameters) # list of hyperparameters
+        hyperparameters) # list of hyperparameters
         
 ```
