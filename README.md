@@ -5,9 +5,6 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 # WORK IN PROGRESS
 
 ```R 
-
-hyperparameters <- c(LDAmethod = "Gibbs", Topics = 50, alpha = 0.2, seed = 123, JSDmax = 0.08)
-
 textRec(users = users_df,               # df of users
         documents = text_df,            # df of documents
         user_ID = users_df$ID,          # ID of users
