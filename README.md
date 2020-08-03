@@ -13,6 +13,12 @@ textRec(users_df, # df of users
         user_ID,  # ID of users
         text_ID,  # ID of documents
         interactions_df, # df containing user/doc interactions
-        hyperparameters) # list of hyperparameters
+        hyperparameters = c( # list of hyperparameters
+                LDAmethod = "Gibbs", # choose which method the LDA model should use
+                Topics = 50, # choose the K number of topics with which to run the LDA model
+                Automate_topics = FALSE # choose if # of topics should be automated. FALSE = no automation, K is used. TRUE = automated through and LDA optimizer. Topics parameter is ignored as a result.
+                alpha = 0.2, # set alpha hyperparameter for the LDA model
+                seed = 123, # set random seed 
+                JSDmax = 0.08)) # set JSDmax in order to qualify as a recommendation. anything below is ignored.
         
 ```
