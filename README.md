@@ -16,6 +16,6 @@ textRec(users = users_df,               # df of users
                 automate_topics = FALSE # set whether the number of topics should be automated
                 alpha = 0.2,            # set alpha hyperparameter for the LDA model
                 seed = 123,             # set random seed 
-                jsd_max = 0.08))        # set JSDmax in order for a row to qualify as a recommendation
+                jsd_max = 0.08))        # set maximum Jensen-Shannon Divergence to qualify as recomnedation
         
 ```
