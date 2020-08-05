@@ -11,11 +11,11 @@ textRec(users = users_df,               # df of users
         text_id = text_df$ID,           # ID of documents
         interactions = interactions_df, # df containing user/doc interactions
         hyperparameters = c(            # list of hyperparameters
-                lda_method = "Gibbs",    # set which method the LDA model should use
+                lda_method = "Gibbs",   # set which method the LDA model should use
                 topics = 50,            # set the K number of topics with which to run the LDA model
                 automate_topics = FALSE # set if number of topics should be automated
                 alpha = 0.2,            # set alpha hyperparameter for the LDA model
                 seed = 123,             # set random seed 
-                jsd_max = 0.08))         # set JSDmax in order for a row to qualify as a recommendation
+                jsd_max = 0.08))        # set JSDmax in order for a row to qualify as a recommendation
         
 ```
