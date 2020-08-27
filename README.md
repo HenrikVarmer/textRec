@@ -6,7 +6,7 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 
 ### Dataframes and hyperparameters for the textRec() function
 
-```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. See below comments for a brief explanation as to what each parameter requires. 
+```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. See below comments for a brief explanation of what each parameter requires. 
 
 ```R 
 textRec(users = users_df,               # df of users
