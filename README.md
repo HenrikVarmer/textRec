@@ -40,6 +40,11 @@ In the output dataframe returned from the ```textRec()``` function, the 'item_hi
 # load the previously trained model
 load("event_lda.rda")
 
+# construct a Document Term Matrix of these new events
+dtm_new <- textRec_dtm(text_df     = documents,     # dataframe containing documents
+                       ID_column   = "ID",          # the name of the column containing document ID
+                       text_column = "description") # the name of the column containing text
+
 posterior(LDA_model = event_lda, # trained LDA model
           dtm = dtm_new)         # document term matrix
 ```
