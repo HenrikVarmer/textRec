@@ -4,6 +4,8 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 
 # WORK IN PROGRESS
 
+```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. 
+
 ```R 
 textRec(users = users_df,               # df of users
         documents = text_df,            # df of documents
@@ -19,3 +21,5 @@ textRec(users = users_df,               # df of users
                 jsd_max = 0.1))         # set maximum Jensen-Shannon Divergence to qualify as recomnedation
         
 ```
+
+Output example:
