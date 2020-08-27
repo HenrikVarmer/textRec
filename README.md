@@ -46,6 +46,6 @@ dtm_new <- textRec_dtm(text_df     = documents,     # dataframe containing docum
                        text_column = "description") # the name of the column containing text
 
 posterior(LDA_model = event_lda, # trained LDA model
-          dtm = dtm_new)         # document term matrix
+          dtm       = dtm_new)   # document term matrix
 ```
 
