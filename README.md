@@ -35,7 +35,7 @@ In the output dataframe returned from the ```textRec()``` function, the 'item_hi
 | 22,27,33        |     1002   |	           20   |	0.08      | NA	      | LDA_JSD   |
 | 11,20,33        |     1003   |	           27   |	NA        | 32	      | ColdStart   |
 
-### posterior() function: Dataframes and hyperparameters
+### posterior() function: apply trained LDA model to new DTM
 ```R
 posterior(event_lda, # trained LDA model
           dtm_new)   # document term matrix
