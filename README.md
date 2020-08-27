@@ -37,7 +37,7 @@ In the output dataframe returned from the ```textRec()``` function, the 'item_hi
 
 ### posterior() function: apply trained LDA model to new DTM
 ```R
-posterior(event_lda, # trained LDA model
-          dtm_new)   # document term matrix
+posterior(LDA_model = event_lda, # trained LDA model
+          dtm = dtm_new)         # document term matrix
 ```
 
