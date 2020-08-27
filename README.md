@@ -35,7 +35,7 @@ In the output dataframe returned from the ```textRec()``` function, the 'item_hi
 | 22,27,33        |     1002   |	           20   |	0.08      | NA	      | LDA_JSD   |
 | 11,20,33        |     1003   |	           27   |	NA        | 32	      | ColdStart   |
 
-### posterior() function: apply trained LDA model to new DTM
+### posterior() and textRec_dtm() function: apply trained LDA model to new DTM
 ```R
 # load the previously trained model
 load("event_lda.rda")
