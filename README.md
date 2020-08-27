@@ -18,8 +18,17 @@ textRec(users = users_df,               # df of users
                 automate_topics = FALSE # set whether the number of topics should be automated
                 alpha = 0.2,            # set alpha hyperparameter for the LDA model
                 seed = 123,             # set random seed 
-                jsd_max = 0.1))         # set maximum Jensen-Shannon Divergence to qualify as recomnedation
+                jsd_max = 0.1)          # set maximum Jensen-Shannon Divergence to qualify as recomnedation
+        enable_coldstart = TRUE)        # toggles whether knn cold start engine should be enabled
         
 ```
 
 Output example:
+
+In the output dataframe returned from the ```textRec()``` function, the 'item_history' column constitutes the user interaction history. The 'recommendation' column indicates the recommended document based on Jensen-Shannon Divergence from text documents with which the user has interacted, to another document. The 'votes' column specifies number of times this document was recommended to nearest neighbors, if the recommendation was provided by the cold-start engine. The 'type' column specifies whether the recommendation is from the LDA model or from cold-start.
+
+| doc_history    | customer   |	recommendation  |	JSD   | votes  | type   |
+|----------------:|-----------:|-----------------:|----------:|------------:|-------:|--------:|
+| 20,23,24,27     |     1001   |	           29   |	0.01      | NA	      | LDA_JSD  |
+| 22,27,33        |     1002   |	           20   |	0.08      | NA	      | LDA_JSD   |
+| 11,20,33        |     1003   |	           27   |	NA        | 32	      | ColdStart   |
