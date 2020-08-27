@@ -20,7 +20,8 @@ textRec(users = users_df,               # df of users
                 automate_topics = FALSE # set whether the number of topics should be automated
                 alpha = 0.2,            # set alpha hyperparameter for the LDA model
                 seed = 123,             # set random seed 
-                jsd_max = 0.1)          # set maximum Jensen-Shannon Divergence to qualify as recomnedation
+                jsd_max = 0.1),         # set maximum Jensen-Shannon Divergence to qualify as recomnedation
+        trained_LDA = lda.rda,          # optional. loads a trained LDA model. if supplied, ignores hyperparameters
         enable_coldstart = TRUE)        # toggles whether knn cold start engine should be enabled
         
 ```
@@ -35,17 +36,4 @@ In the output dataframe returned from the ```textRec()``` function, the 'item_hi
 | 22,27,33        |     1002   |	           20   |	0.08      | NA	      | LDA_JSD   |
 | 11,20,33        |     1003   |	           27   |	NA        | 32	      | ColdStart   |
 
-### posterior() and textRec_dtm() function: apply trained LDA model to new DTM
-```R
-# load the previously trained model
-load("event_lda.rda")
-
-# construct a Document Term Matrix of these new events
-dtm_new <- textRec_dtm(text_df     = documents,     # dataframe containing documents
-                       ID_column   = "ID",          # the name of the column containing document ID
-                       text_column = "description") # the name of the column containing text
-
-posterior(LDA_model = event_lda, # trained LDA model
-          dtm       = dtm_new)   # document term matrix
-```
 
