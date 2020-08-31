@@ -21,7 +21,7 @@ textRec(users = users_df,               # df of users
                 alpha = 0.2,            # set alpha hyperparameter for the LDA model
                 seed = 123,             # set random seed 
                 jsd_max = 0.1),         # set maximum Jensen-Shannon Divergence to qualify as recomnedation
-        trained_LDA = lda.rda,          # Loads a trained LDA model. If supplied, no new model is trained
+        trained_LDA = lda.rda,          # Loads a saved LDA model. If supplied, no new model is trained
         enable_coldstart = TRUE)        # toggles whether knn cold start engine should be enabled
         
 ```
