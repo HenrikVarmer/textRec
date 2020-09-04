@@ -82,23 +82,30 @@ textRec <- function(users = custo,
   }
   
   #calculate which words belong to which topic
-  message("assigning topic probablity distributions to documents")
+  message("assigning LDA topic probablity distributions to documents...")
   document_topics <- tidytext::tidy(lda_m, matrix = "gamma") %>%
-    mutate(gamma = round(gamma,5))
+    mutate(gamma = round(gamma,5)) %>% 
+    rename(text_id = document)
+  message("done!")
   
   # Get contact divergence
   message("computing Jensen-Shannon divergence...")
-  EventHistDivergence <- ComputeInteractionJSD(document_topics, jsd_max = jsd_max)
+  EventHistDivergence <- ComputeInteractionJSD(document_topics)
   message("done!")
   
   # Cold Start
-  message("cold-starting users with no-interactions using knn...")
   if (enable_coldstart) {
+    message("cold-starting users with no-interactions using knn...")
     ColdStart <- ColdStart(users, lda_m)
+  } else {
+    mesage("skipping cold-start!")
   }
   message("done!")
   
-  Recommendations <- rbind(EventHistDivergence, ColdStart)
+  if (is.null(ColdStart)) {
+    Recommendations <- Recommendations } 
+  else {
+    Recommendations <- rbind(EventHistDivergence, ColdStart) }
   
   return(Recommendations)
   

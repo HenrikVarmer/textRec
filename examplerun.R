@@ -5,6 +5,8 @@
 
 source("./R/textRec.R")
 source("./R/constructDTM.R")
+source("./R/ComputeInteractionJSD.R")
+library(reshape2)
 
 # load data
 
@@ -24,7 +26,7 @@ recommendations <- textRec(users = custo,
                            interactions = inter, 
                            ngram_vector = c(1, 2),
                            lda_method = "Gibbs",
-                           topics = 50,
+                           topics = 4,
                            automate_topics = FALSE,
                            min_topics = 10,
                            max_topics = 120,
@@ -33,6 +35,6 @@ recommendations <- textRec(users = custo,
                            r_seed = 123, 
                            jsd_max = 0.1,
                            stopwords = c("No, hi"),
-                           enable_coldstart = TRUE)
+                           enable_coldstart = FALSE)
 
 
