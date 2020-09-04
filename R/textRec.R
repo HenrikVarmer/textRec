@@ -84,8 +84,7 @@ textRec <- function(users = custo,
   #calculate which words belong to which topic
   message("assigning topic probablity distributions to documents")
   document_topics <- tidytext::tidy(lda_m, matrix = "gamma") %>%
-    mutate(gamma = round(gamma,5)) %>% 
-    rename(EventId=document)
+    mutate(gamma = round(gamma,5))
   
   # Get contact divergence
   message("computing Jensen-Shannon divergence...")
