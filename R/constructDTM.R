@@ -5,8 +5,8 @@ constructDTM <- function(df, id, doc_col, stopwords, ngram_vector) {
 
   
   return(
-    CreateDtm(doc_vec = select(df, matches(doc_col)), # character vector of documents
-              doc_names = select(df, matches(id)), # document names
+    CreateDtm(doc_vec = df[[doc_col]], # character vector of documents
+              doc_names = df[[id]], # document names
               ngram_window = ngram_vector, # minimum and maximum n-gram length
               stopword_vec = c(StopWords), 
               stem_lemma_function = function(x) SnowballC::wordStem(x, "porter"), #apply porter's stemming and lemmitization

@@ -10,9 +10,9 @@ library(reshape2)
 
 # load data
 
-custo <- read.csv("./dat/users.csv", stringsAsFactors = FALSE, sep = ";") %>% rename(UserID = ï..UserID)
-texts <- read.csv("./dat/articles.csv", stringsAsFactors = FALSE, sep = ";") %>% rename(TextID = ï..TextID)
-inter <- read.csv("./dat/userinteractions.csv", stringsAsFactors = FALSE, sep = ";") %>% rename(UserID = ï..UserID)
+custo <- read.csv("./dat/users.csv", stringsAsFactors = FALSE, sep = ";", encoding = "UTF-8") %>% rename(UserID = X.U.FEFF.UserID)
+texts <- read.csv("./dat/articles.csv", stringsAsFactors = FALSE, sep = ";", encoding = "UTF-8") %>% rename(TextID = X.U.FEFF.TextID)
+inter <- read.csv("./dat/userinteractions.csv", stringsAsFactors = FALSE, sep = ";", encoding = "UTF-8") %>% rename(UserID = X.U.FEFF.UserID)
 
 head(custo)
 head(texts)

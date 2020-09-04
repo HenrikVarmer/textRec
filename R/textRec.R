@@ -59,8 +59,9 @@ textRec <- function(users = custo,
       mc.cores = parallel::detectCores(),
       verbose  = TRUE
     )
-    message(paste("done! found number of optimal topics to be ", k, " ..."))
+    message(paste0("done! found number of optimal topics to be ", k, " ..."))
   } else {
+    message(paste0("k = ", k))
     topics
     }
   
@@ -84,31 +85,48 @@ textRec <- function(users = custo,
   #calculate which words belong to which topic
   message("assigning LDA topic probablity distributions to documents...")
   document_topics <- tidytext::tidy(lda_m, matrix = "gamma") %>%
-    mutate(gamma = round(gamma,5)) %>% 
-    rename(text_id = document)
+    mutate(gamma = round(gamma,5))
   message("done!")
   
   # Get contact divergence
   message("computing Jensen-Shannon divergence...")
-  EventHistDivergence <- ComputeInteractionJSD(document_topics)
+  EventHistDivergence <- ComputeInteractionJSD(document_topics, document)
   message("done!")
   
   # Cold Start
-  if (enable_coldstart) {
-    message("cold-starting users with no-interactions using knn...")
-    ColdStart <- ColdStart(users, lda_m)
-  } else {
-    mesage("skipping cold-start!")
-  }
-  message("done!")
+#  if (enable_coldstart) {
+#    message("cold-starting users with no-interactions using knn...")
+#    ColdStart <- ColdStart(users, lda_m)
+ # } else {
+#    mesage("skipping cold-start!")
+#  }
+#  message("done!")
   
-  if (is.null(ColdStart)) {
-    Recommendations <- Recommendations } 
-  else {
-    Recommendations <- rbind(EventHistDivergence, ColdStart) }
+#  if (is.null(ColdStart)) {
+#    Recommendations <- Recommendations } 
+##  else {
+#    Recommendations <- rbind(EventHistDivergence, ColdStart) }
   
-  return(Recommendations)
+   debug <- list(EventHistDivergence, dtm, k, lda_m, document_topics, users)
+  
+  return(debug)
   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
