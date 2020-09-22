@@ -9,20 +9,24 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 ```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. See below comments for a brief explanation of what each parameter requires. 
 
 ```R 
-textRec(users = users_df,               # df of users
-        documents = text_df,            # df of documents
-        user_id = users_df$ID,          # ID of users
-        text_id = text_df$ID,           # ID of documents
-        interactions = interactions_df, # df containing user/doc interactions
-        hyperparameters = c(            # list of hyperparameters
-                lda_method = "Gibbs",   # set which method the LDA model should use
-                topics = 50,            # set the K number of topics with which to run the LDA model
-                automate_topics = FALSE # set whether the number of topics should be automated
-                alpha = 0.2,            # set alpha hyperparameter for the LDA model
-                seed = 123,             # set random seed 
-                jsd_max = 0.1),         # set maximum Jensen-Shannon Divergence to qualify as recomnedation
-        trained_LDA = lda.rda,          # Loads a saved LDA model. If supplied, no new model is trained
-        enable_coldstart = TRUE)        # toggles whether knn cold start engine should be enabled
+textRec(users = custo, 
+                           documents = texts, 
+                           user_id = "UserID", 
+                           text_id = "TextID",
+                           text_column_name = "DocumentText",
+                           interactions = inter, 
+                           ngram_vector = c(1, 2),
+                           lda_method = "Gibbs",
+                           topics = 4,
+                           automate_topics = FALSE,
+                           min_topics = 10,
+                           max_topics = 120,
+                           iterate_by = 3,
+                           lda_alpha = 0.2, 
+                           r_seed = 123, 
+                           jsd_max = 0.1,
+                           stopwords = c("example, of, stopword, vector"),
+                           enable_coldstart = FALSE)
         
 ```
 
