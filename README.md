@@ -10,23 +10,23 @@ textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon
 
 ```R 
 textRec(users = custo, 
-                           documents = texts, 
-                           user_id = "UserID", 
-                           text_id = "TextID",
-                           text_column_name = "DocumentText",
-                           interactions = inter, 
-                           ngram_vector = c(1, 2),
-                           lda_method = "Gibbs",
-                           topics = 4,
-                           automate_topics = FALSE,
-                           min_topics = 10,
-                           max_topics = 120,
-                           iterate_by = 3,
-                           lda_alpha = 0.2, 
-                           r_seed = 123, 
-                           jsd_max = 0.1,
-                           stopwords = c("example", "of", "stopword", "vector"),
-                           enable_coldstart = FALSE)
+        documents = texts, 
+        user_id = "UserID", 
+        text_id = "TextID",
+        text_column_name = "DocumentText",
+        interactions = inter, 
+        ngram_vector = c(1, 2),
+        lda_method = "Gibbs",
+        topics = 4,
+        automate_topics = FALSE,
+        min_topics = 10,
+        max_topics = 120,
+        iterate_by = 3,
+        lda_alpha = 0.2, 
+        r_seed = 123, 
+        jsd_max = 0.1,
+        stopwords = c("example", "of", "stopword", "vector"),
+        enable_coldstart = FALSE)
         
 ```
 
