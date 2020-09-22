@@ -59,9 +59,9 @@ textRec <- function(users = custo,
       mc.cores = parallel::detectCores(),
       verbose  = TRUE
     )
-    message(paste0("done! found number of optimal topics to be ", k, " ..."))
+    message(paste0("done! found number of optimal topics to be ", result, " ..."))
   } else {
-    message(paste0("k = ", k))
+    message(paste0("k = ", topics))
     topics
     }
   
@@ -90,7 +90,7 @@ textRec <- function(users = custo,
   
   # Get contact divergence
   message("computing Jensen-Shannon divergence...")
-  EventHistDivergence <- ComputeInteractionJSD(document_topics, document)
+  jsd_divergence <- ComputeInteractionJSD(document_topics)
   message("done!")
   
   # Cold Start
@@ -107,9 +107,12 @@ textRec <- function(users = custo,
 ##  else {
 #    Recommendations <- rbind(EventHistDivergence, ColdStart) }
   
-   debug <- list(EventHistDivergence, dtm, k, lda_m, document_topics, users)
   
-  return(debug)
+  message("computing recommendations...")
+  recs <- rec_JSD(interactions, jsd_divergence, text_id, user_id, jsd_max)
+  message("done!")
+  
+  return(recs)
   
 }
 
