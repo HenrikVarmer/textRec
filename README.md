@@ -25,7 +25,7 @@ textRec(users = custo,
                            lda_alpha = 0.2, 
                            r_seed = 123, 
                            jsd_max = 0.1,
-                           stopwords = c("example, of, stopword, vector"),
+                           stopwords = c("example", "of", "stopword", "vector"),
                            enable_coldstart = FALSE)
         
 ```
