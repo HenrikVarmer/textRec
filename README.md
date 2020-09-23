@@ -1,7 +1,9 @@
 # textRec (work in progress)
 textRec utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence computations on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel (never-before-seen in training) text documents to specific users. 
 
-Run examplerun.R for an example of functionality and use.
+In order to get recoommendations, simply input a dataframe of users, a dataframe of documents, and a dataframe of user/document interactions, set model hyperparameters and the amount of LDA topics to model (or alternatively, rely on textRec to automate modt hyperparameters using ldatuning::FindTopicsNumber() to find an optimal k number of topics). If not all customers have interaction history with documents, you can use the integrated ColdStart engine in order to find k-nearest neighbors and force a cold-start a recommendation for those users. See below function use example, for an explanation of hyperparameters and inputs. 
+
+Run examplerun.R for an example of functionality and use, with test data from the /dat folder. 
 
 # Main functions
 
