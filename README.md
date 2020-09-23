@@ -12,24 +12,24 @@ Run examplerun.R for an example of functionality and use, with test data from th
 ```textRec()``` is the main function, which takes three dataframe inputs, and outputs one single dataframe containing all users with recommendations. One row in the output is one recommendation for one user. See below comments for a brief explanation of what each parameter requires. 
 
 ```R 
-textRec(users = custo, 
-        documents = texts, 
-        user_id = "UserID", 
-        text_id = "TextID",
-        text_column_name = "DocumentText",
-        interactions = inter, 
-        ngram_vector = c(1, 2),
-        lda_method = "Gibbs",
-        topics = 4,
-        automate_topics = FALSE,
-        min_topics = 10,
-        max_topics = 120,
-        iterate_by = 3,
-        lda_alpha = 0.2, 
-        r_seed = 123, 
-        jsd_max = 0.1,
-        stopwords = c("example", "of", "stopword", "vector"),
-        enable_coldstart = FALSE)
+textRec(users = custo,                          # dataframe of customers/users
+        documents = texts,                      # dataframe of documents
+        user_id = "UserID",                     # user ID column name
+        text_id = "TextID",                     # document ID column name
+        text_column_name = "DocumentText",      # text column name
+        interactions = inter,                   # dataframe of interactions
+        ngram_vector = c(1, 2),                 # vector of min and max ngrams
+        lda_method = "Gibbs",                   # LDA method
+        topics = 4,                             # k topics
+        automate_topics = FALSE,                # automate topics TRUE/FALSE
+        min_topics = 10,                        # min topics to iterate from (optional)
+        max_topics = 120,                       # max topics to iterate to (optional)
+        iterate_by = 3,                         # topic search iterate by (optional)
+        lda_alpha = 0.2,                        # LDA alpha hyperparameter (optional)
+        r_seed = 123,                           # R random seed for repex (optional)
+        jsd_max = 0.1,                          # JSD max value to recommend (optional)
+        stopwords = c("example", "vector"),     # stopword vector (optional)
+        enable_coldstart = FALSE)               # coldstart (TRUE/FALSE)
         
 ```
 
