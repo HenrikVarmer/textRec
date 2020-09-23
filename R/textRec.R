@@ -50,7 +50,7 @@ textRec <- function(users = custo,
   k <- if(automate_topics) {
     message("attempting to automate topics...")
     #iterate n Latent Direchlet Allocation models and find local minima k
-    result <- FindTopicsNumber(
+    result <- ldatuning::FindTopicsNumber(
       dtm,
       topics   = seq(from = min_topics, to = max_topics, by = iterate_by),
       metrics  = c("Griffiths2004", "CaoJuan2009", "Arun2010", "Deveaud2014"),
