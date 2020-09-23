@@ -1,5 +1,5 @@
 # textRec (work in progress)
-textRec is an R package utilizing Latent Dirichlet Allocation and Jensen-Shannon-Divergence computations in order to recommend unique and novel (never-before-seen in training) text documents to specific users. 
+textRec utlizes Latent Dirichlet Allocation and Jensen-Shannon-Divergence computations on the discrete probability distributions over LDA topics per document, in order to recommend unique and novel (never-before-seen in training) text documents to specific users. 
 
 Run examplerun.R for an example of functionality and use.
 
