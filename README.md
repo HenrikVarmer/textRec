@@ -37,7 +37,7 @@ textRec(users = custo,                          # dataframe of customers/users
 
 #### Output example:
 
-In the output dataframe returned from the ```textRec()``` function, the 'item_history' column constitutes the user interaction history. The 'recommendation' column indicates the recommended document based on Jensen-Shannon Divergence from text documents with which the user has interacted, to another document. The 'votes' column specifies number of times this document was recommended to nearest neighbors, if the recommendation was provided by the cold-start engine. The 'type' column specifies whether the recommendation is derived from the LDA model or from cold-start.
+In the output dataframe returned from the ```textRec()``` function, the 'item_history' column constitutes the user interaction history. The 'recommendation' column indicates the recommended document based on Jensen-Shannon Divergence from text documents with which the user has interacted, to another document. The 'votes' column specifies number of times this document was recommended to nearest neighbors, if the recommendation was provided by the cold-start engine. The 'type' column specifies whether the recommendation is derived from the LDA model or from the cold-start engine.
 
 | doc_history    | customer   |	recommendation  |	JSD   | votes  | type   |
 |----------------:|-----------:|-----------------:|----------:|------------:|-------:|
