@@ -7,6 +7,14 @@ If not all customers have interaction history with documents, you can use the in
 
 Run examplerun.R for an example of functionality and use, with test data from the /dat folder. 
 
+### Installing textRec
+Install the package directly from github with devtools. Run the first line if you do not currently have devtools installed.
+
+```R
+# install.packages('devtools') 
+devtools::install_github('HenrikVarmer/textRec')
+```
+
 # Main functions
 
 ### textRec() function: Dataframes and hyperparameters
