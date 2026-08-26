@@ -40,7 +40,7 @@ for r in recs:
 pip install -e ".[test]"      # from a checkout; PyPI release to follow
 ```
 
-Requires Python ≥ 3.9, NumPy, SciPy and scikit-learn.
+Requires Python ≥ 3.9, NumPy and scikit-learn.
 
 ## Usage
 
